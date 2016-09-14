@@ -1,2 +1,5 @@
-A C# implementation of a Dictionary (HashTable) which also allows for randomized access to its elements.
-Data is stored internally in both a Dictionary and LinkedList.  The internal Dictionary is used to support constant time gets and puts.  Put operations randomly append to the start or end of the LinkedList.  To get a random element, we return the first element in the LinkedList and move it to the end of the LinkedList.
+# RandomHashMap
+RandomHashMap is a C# extension to Dictionary (HashTable) which adds a getter for random access to its elements.
+
+#### Implementation details
+Data is stored in both a Dictionary and LinkedList.  The Dictionary is used to support constant time access to any element via its key.  Inserting a key adds the item to the Dictionary and randomly appends/prepends the key into the LinkedList.  Remove takes the element out of the Dictionary.  To get a random element, we pop a key off the LinkedList and check if it exists in the dictionary.  If yes, the key is randomly appended/prepended to the LinkedList and the corresponding value is returned from the Dictionary.  If no, we discard the key and recall the get random function utill it returns a value.
